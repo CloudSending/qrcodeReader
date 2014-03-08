@@ -31,6 +31,7 @@
 		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
 		E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424610CC5A17004149E2 /* IOKit.framework */; };
 		E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
+		FF829A6E18CA0F34007D98C9 /* QrScanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF829A6D18CA0F34007D98C9 /* QrScanner.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,11 @@
 		E4C2424610CC5A17004149E2 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		FF829A4618CA0D6C007D98C9 /* ofxState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxState.h; sourceTree = "<group>"; };
+		FF829A4718CA0D6C007D98C9 /* ofxStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxStateMachine.h; sourceTree = "<group>"; };
+		FF829A6A18CA0E8F007D98C9 /* shareData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shareData.h; sourceTree = "<group>"; };
+		FF829A6C18CA0F28007D98C9 /* QrScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrScanner.h; sourceTree = "<group>"; };
+		FF829A6D18CA0F34007D98C9 /* QrScanner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QrScanner.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +182,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				FF829A2F18CA0D6C007D98C9 /* ofxStateMachine */,
 				B691F23718BF29970069485F /* ofxZxing */,
 			);
 			name = addons;
@@ -243,8 +250,10 @@
 			isa = PBXGroup;
 			children = (
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				FF829A6B18CA0F12007D98C9 /* QrScanner */,
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
+				FF829A6A18CA0E8F007D98C9 /* shareData.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -258,6 +267,33 @@
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 			);
 			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		FF829A2F18CA0D6C007D98C9 /* ofxStateMachine */ = {
+			isa = PBXGroup;
+			children = (
+				FF829A4518CA0D6C007D98C9 /* src */,
+			);
+			name = ofxStateMachine;
+			path = ../../../addons/ofxStateMachine;
+			sourceTree = "<group>";
+		};
+		FF829A4518CA0D6C007D98C9 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FF829A4618CA0D6C007D98C9 /* ofxState.h */,
+				FF829A4718CA0D6C007D98C9 /* ofxStateMachine.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		FF829A6B18CA0F12007D98C9 /* QrScanner */ = {
+			isa = PBXGroup;
+			children = (
+				FF829A6C18CA0F28007D98C9 /* QrScanner.h */,
+				FF829A6D18CA0F34007D98C9 /* QrScanner.cpp */,
+			);
+			name = QrScanner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +385,7 @@
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				B691F2BC18BF29970069485F /* ofxZxing.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */,
+				FF829A6E18CA0F34007D98C9 /* QrScanner.cpp in Sources */,
 				B691F2BD18BF29970069485F /* Result.cpp in Sources */,
 				B691F2BB18BF29970069485F /* ofPixelsBitmapSource.cpp in Sources */,
 			);
@@ -512,7 +549,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					/Workspace/oF/of_v0.8.0_osx_release/addons/ofxZxing/libs/zxing/osx,
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../libs/zxing/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../addons/ofxZxing/libs/zxing/osx\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = qrcodeReader.temp_caseinsensitive_rename.temp_caseinsensitive_renameDebug;
 				SDKROOT = macosx;
@@ -610,14 +647,9 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					/Workspace/oF/of_v0.8.0_osx_release/addons/ofxZxing/libs/zxing/iphone42/ios,
-					/Workspace/oF/of_v0.8.0_osx_release/addons/ofxZxing/libs/zxing/iphone42/sim,
 					/Workspace/oF/of_v0.8.0_osx_release/addons/ofxZxing/libs/zxing/osx,
-					/Workspace/oF/of_v0.8.0_osx_release/apps/projects/example/libs/zxing/iphone42/ios,
-					/Workspace/oF/of_v0.8.0_osx_release/apps/projects/example/libs/zxing/iphone42/sim,
-					/Workspace/oF/of_v0.8.0_osx_release/apps/projects/example/libs/zxing/osx,
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../libs/zxing/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../addons/ofxZxing/libs/zxing/osx\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = qrcodeReader.temp_caseinsensitive_rename.temp_caseinsensitive_rename;
 				SDKROOT = macosx;

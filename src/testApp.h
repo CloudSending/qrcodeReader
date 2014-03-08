@@ -1,19 +1,18 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxZxing.h"
+#include "ofxStateMachine.h"
+#include "shareData.h"
+
 
 class testApp : public ofBaseApp {
-public:
-	void setup();
-	void update();
-	void draw();
-	
-	ofxZxing::Result result;
-	ofImage logo_ana;
-	ofImage logo_jal;
-	ofVideoGrabber cam;
-	float lastFound;
-    
-    string ticketData;
+
+    public:
+        void setup();
+        void update();
+        void draw();
+        
+    private:
+        itg::ofxStateMachine<SharedData> stateMachine;
+
 };
